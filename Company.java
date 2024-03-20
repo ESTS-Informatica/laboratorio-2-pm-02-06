@@ -146,7 +146,13 @@ public class Company {
      * @return The total number of sells in the year.
      */
     public int calculateSellsOfTheYear(int year) {
-        return 0;         // dummy implementation
+        int counter = 0;
+        for(Sell sell : sells){
+            if(sell.getDate().getYear() == year){
+                counter ++;
+            }
+        }
+        return counter;
     }
 
     /**
@@ -156,7 +162,12 @@ public class Company {
      * @return The name of the seller of the year.
      */
     public String findSellerOfTheYear(int year) {
-        return null;         // dummy implementation
+        int[] arr = new int[sellers.size()]; //counters dos selles que existem
+        for(Sell sell: sells){
+            //percorrer eplas sell e ver por cada sell qual o seller e adicionar no arr counter.
+        }
+        //por sua vez ver o counter maior e pelo indice ir buscar o seller respetivo
+        return null;
     }
 
 }

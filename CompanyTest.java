@@ -135,4 +135,25 @@ public class CompanyTest
         comp1.registerProperty(prop1);
         assertTrue(comp1.createSell(client1, seller1, prop1));
     }
+    
+    @Test
+    public void testCalculateSellsOfTheYear(){
+        comp1.registerClient(client1);
+        comp1.registerSeller(seller1);
+        comp1.registerProperty(prop1);
+        comp1.createSell(client1, seller1, prop1);
+        User client2 = new User("Jonas", "922288777", "jonasgmail");
+        User seller2 = new User("Rui", "889834377", "ruigmail");
+        Property prop2 = new Property("Monte belo", 130000.0);
+        comp1.registerClient(client2);
+        comp1.registerSeller(seller2);
+        comp1.registerProperty(prop2);
+        comp1.createSell(client2, seller2, prop2);
+        assertEquals(2, comp1.calculateSellsOfTheYear(2024));
+    }
+    
+    @Test
+    public void testFindSellerOfTheYear(){
+        
+    }
 }
