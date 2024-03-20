@@ -115,7 +115,11 @@ public class Company {
      * @return true If the registration succeeds, false otherwise.
      */
     public boolean registerSell(Sell sell) {
-        return true;         // dummy implementation
+        if (!sells.contains(sell) && sell != null){
+            sells.add(sell);
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -127,7 +131,12 @@ public class Company {
      * @return true If the request succeeds, false otherwise.
      */
     public boolean createSell(User client, User seller, Property property) {
-        return true;         // dummy implementation
+        if (clients.contains(client) && sellers.contains(seller) && properties.contains(property)){
+            Sell s1 = new Sell(client, seller, property);
+            registerSell(s1);
+            return true;
+        }
+        return false;
     }
 
     /**
