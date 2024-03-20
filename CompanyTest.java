@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 public class CompanyTest
 {
     private Company comp1;
-    
+
     /**
      * Default constructor for test class CompanyTest
      */
@@ -40,7 +40,7 @@ public class CompanyTest
     public void tearDown()
     {
     }
-    
+
     @Test
     public void testConstructor(){
         assertNotNull(comp1.getProperties());
@@ -48,13 +48,13 @@ public class CompanyTest
         assertNotNull(comp1.getSellers());
         assertNotNull(comp1.getSells());
     }
-    
+
     @Test
     public void testRegisterClient(){
         User u1 = new User("João", "999888777", "joaogmail");
         assertTrue(comp1.registerClient(u1));
     }
-    
+
     @Test
     public void testRegisterClients(){
         User u1 = new User("João", "999888777", "joaogmail");
@@ -62,17 +62,72 @@ public class CompanyTest
         assertTrue(comp1.registerClient(u1));
         assertTrue(comp1.registerClient(u2));
     }
-    
+
     @Test
     public void testRegisterClientDuplicate(){
         User u1 = new User("João", "999888777", "joaogmail");
         assertTrue(comp1.registerClient(u1));
         assertFalse(comp1.registerClient(u1));
     }
-    
+
     @Test
     public void testRegisterClientNull(){
         User u3 = null;
         assertFalse(comp1.registerClient(u3));
     }
+
+    @Test
+    public void testRegisterSeller(){
+        User u1 = new User("Miguel", "999834377", "miguelgmail");
+        assertTrue(comp1.registerSeller(u1));
+    }
+
+    @Test
+    public void testRegisterSellers(){
+        User u1 = new User("Miguel", "999834377", "miguelgmail");
+        User u2 = new User("Miguela", "111266533", "miguelagmail");
+        assertTrue(comp1.registerSeller(u1));
+        assertTrue(comp1.registerSeller(u2));
+    }
+
+    @Test
+    public void testRegisterSellerDuplicate(){
+        User u1 = new User("Miguel", "999834377", "miguelgmail");
+        assertTrue(comp1.registerSeller(u1));
+        assertFalse(comp1.registerSeller(u1));
+    }
+
+    @Test
+    public void testRegisterSellerNull(){
+        User u3 = null;
+        assertFalse(comp1.registerSeller(u3));
+    }
+
+    @Test
+    public void testRegisterProperty(){
+        Property prop1 = new Property("Viso", 140000.0);
+        assertTrue(comp1.registerProperty(prop1));
+    }
+
+    @Test
+    public void testRegisterProperties(){
+        Property prop1 = new Property("Viso", 140000.0);
+        Property prop2 = new Property("Setubal", 5.0);
+        assertTrue(comp1.registerProperty(prop1));
+        assertTrue(comp1.registerProperty(prop2));
+    }
+
+    @Test
+    public void testRegisterPropertyDuplicate(){
+        Property prop1 = new Property("Viso", 140000.0);
+        assertTrue(comp1.registerProperty(prop1));
+        assertFalse(comp1.registerProperty(prop1));
+    }
+
+    @Test
+    public void testRegisterPropertyNull(){
+        Property prop3 = null;
+        assertFalse(comp1.registerProperty(prop3));
+    }
+
 }
