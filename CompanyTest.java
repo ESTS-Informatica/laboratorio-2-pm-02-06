@@ -48,4 +48,31 @@ public class CompanyTest
         assertNotNull(comp1.getSellers());
         assertNotNull(comp1.getSells());
     }
+    
+    @Test
+    public void testRegisterClient(){
+        User u1 = new User("João", "999888777", "joaogmail");
+        assertTrue(comp1.registerClient(u1));
+    }
+    
+    @Test
+    public void testRegisterClients(){
+        User u1 = new User("João", "999888777", "joaogmail");
+        User u2 = new User("Ana", "111222333", "anagmail");
+        assertTrue(comp1.registerClient(u1));
+        assertTrue(comp1.registerClient(u2));
+    }
+    
+    @Test
+    public void testRegisterClientDuplicate(){
+        User u1 = new User("João", "999888777", "joaogmail");
+        assertTrue(comp1.registerClient(u1));
+        assertFalse(comp1.registerClient(u1));
+    }
+    
+    @Test
+    public void testRegisterClientNull(){
+        User u3 = null;
+        assertFalse(comp1.registerClient(u3));
+    }
 }
